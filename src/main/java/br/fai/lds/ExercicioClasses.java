@@ -80,5 +80,15 @@ public class ExercicioClasses {
 
     }
 
+    private void listarCavalo() {
+        System.out.println("------------------------------------------------");
+        for (Animal animal : animais) {
+            if (animal instanceof Cavalo){
+                Cavalo cavalo = (Cavalo)animal;
+                System.out.println("Dados do cavalo: ID: " + cavalo.getId() + " | Nome: " + cavalo.getNome());
+            }
+        }
+    }
+
 
 }
