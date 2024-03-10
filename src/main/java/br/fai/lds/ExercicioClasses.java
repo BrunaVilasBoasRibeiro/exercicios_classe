@@ -62,6 +62,14 @@ public class ExercicioClasses {
 
         System.out.println("Finalizou");
     }
- 
+    private void cadastrarCavalo() {
+        System.out.println("Digite o nome do Cavalo: ");
+        Scanner scanner = new Scanner(System.in);
+        String nomeCavalo = scanner.nextLine();
+        Cavalo cavalo = new Cavalo(nomeCavalo);
+        animais.add(cavalo);
+        System.out.println("O cavalo foi inserido com sucesso");
+    }
+
 
 }
