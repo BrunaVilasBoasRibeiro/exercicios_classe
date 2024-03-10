@@ -99,6 +99,50 @@ public class ExercicioClasses {
 
         }
     }
+    private void listarTodosAnimais() {
+        System.out.println("------------------------------------------------");
+        System.out.println("           Exibindo todos os animais            ");
+        if (animais.size() ==0){
+            System.out.println("       Não existe animais cadastrado!       ");
+        }
+        // Criar Mapa de animais, sendo a chave o tipo do animal CAVALO ou GIRAFA
+        Map<String, List<Animal>> mapaAnimais = new HashMap<>();
+
+        // Chave criada para interar no mapa
+        String chaveCavalo = "CAVALO";
+        String chaveGirafa = "GIRAFA";
+
+        //Lista de animais com suas chaves
+        mapaAnimais.put(chaveCavalo, new ArrayList<>());
+        mapaAnimais.put(chaveGirafa, new ArrayList<>());
+
+        // separandos os animais em suas respectivas chaves
+        for (Animal animal: animais) {
+            if (animal instanceof Cavalo) {
+                List<Animal> cavalos = mapaAnimais.get(chaveCavalo);
+                cavalos.add(animal);
+            } else if (animal instanceof Girafa) {
+                List<Animal> girafas = mapaAnimais.get(chaveGirafa);
+                girafas.add(animal);
+            }
+        }
+        System.out.println("------------------------------------------------");
+        List<Animal> cavalos = mapaAnimais.get(chaveCavalo);
+        System.out.println("Num de Cavalos Cadastrados: " + cavalos.size());
+        for (Animal animal: cavalos) {
+            System.out.println("Dados do animal: | Tipo do Animal: " + chaveCavalo +"| ID: " + animal.getId() + " | Nome do cavalo: " + animal.getNome());
+        }
+        System.out.println("------------------------------------------------");
+        List<Animal> girafas = mapaAnimais.get(chaveGirafa);
+        System.out.println("Num de Cavalos Cadastrados: " + girafas.size());
+        for (Animal animal: girafas) {
+            System.out.println("Dados do animal: | Tipo do Animal: " + chaveGirafa +"| ID: " + animal.getId() + " | Nome do cavalo: " + animal.getNome());
+        }
+
+        System.out.println("Total de animais cadastrados: " + (cavalos.size() + girafas.size()));
+        System.out.println("------------------------------------------------");
+    }
+    
 
 
 }
