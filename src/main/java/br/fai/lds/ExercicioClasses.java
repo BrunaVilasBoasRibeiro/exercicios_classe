@@ -89,6 +89,16 @@ public class ExercicioClasses {
             }
         }
     }
+    private void listarGirafa() {
+        System.out.println("------------------------------------------------");
+        for (Animal animal : animais){
+            if (animal instanceof Girafa){
+                Girafa girafa = (Girafa)animal;
+                System.out.println("Dados da girafa: ID: " + girafa.getId() + " | Nome: " + girafa.getNome());
+            }
+
+        }
+    }
 
 
 }
