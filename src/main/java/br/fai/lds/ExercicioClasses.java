@@ -70,6 +70,15 @@ public class ExercicioClasses {
         animais.add(cavalo);
         System.out.println("O cavalo foi inserido com sucesso");
     }
+    private void cadastrarGirafa() {
+        System.out.println("Digite o nome da Girafa: ");
+        Scanner scanner = new Scanner(System.in);
+        String nomeGirafa = scanner.nextLine();
+        Girafa girafa = new Girafa(nomeGirafa);
+        animais.add(girafa);
+        System.out.println("A girafa foi inserida com sucesso");
+
+    }
 
 
 }
