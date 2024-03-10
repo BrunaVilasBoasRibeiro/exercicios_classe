@@ -142,7 +142,37 @@ public class ExercicioClasses {
         System.out.println("Total de animais cadastrados: " + (cavalos.size() + girafas.size()));
         System.out.println("------------------------------------------------");
     }
-    
+    private void removerAnimalPorId (){
+        // ver se a lista está vazia
+        if (animais.isEmpty()){
+            System.out.println("Não existe animais cadastrados!");
+            return;
+        }
+        // pegar id digitado
+        System.out.println("Digite o ID a ser excluido: ");
+        Scanner scanner = new Scanner(System.in);
+        int id = scanner.nextInt();
+
+        // indice de comparação para verificar se não é maior do que ja existe na lista, caso o id não exista a var é setada com -1 e informa o erro ao user
+
+        int idQueSeraRemovido = -1;
+
+        // for de verfic se o id seja igual ele exclui, caso contrario ele continua a interação até achar o num correspodente
+        for (int i =0; i < animais.size(); i++) {
+            Animal animal = animais.get(i);
+            if (animal.getId() != id){
+                continue;
+            }
+            idQueSeraRemovido = i;
+            break;
+        }
+        if (idQueSeraRemovido == -1){
+            System.out.println("O ID digitado não existe!");
+            return;
+        }
+        animais.remove(idQueSeraRemovido);
+        System.out.println("Animal removido com suceso!");
+    }
 
 
 }
