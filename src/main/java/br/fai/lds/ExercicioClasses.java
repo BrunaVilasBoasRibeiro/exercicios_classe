@@ -173,6 +173,46 @@ public class ExercicioClasses {
         animais.remove(idQueSeraRemovido);
         System.out.println("Animal removido com suceso!");
     }
+    private void listarQtdeAnimaisPorTipo() {
+        System.out.println("------------------------------------------------");
+        System.out.println("      Exibindo todos os animais por tipo!       ");
+        if (animais.size() ==0) {
+            System.out.println("    Não existe nenhum animal cadastrado!    ");
+        }
 
+        //Criar mapa de animais sendo a chave o tipo de animal: CAVALO ou GIRAFA
+        Map<String, List<Animal>> mapaAnimais = new HashMap<>();
 
+        // Chave criadas:
+        String chaveCavalo = "CAVALO";
+        String chaveGirafa = "GIRAFA";
+
+        // Criar Lista de animais com as chaves
+        mapaAnimais.put(chaveCavalo, new ArrayList<>());
+        mapaAnimais.put(chaveGirafa, new ArrayList<>());
+
+        //Separando os animais com suas respectivas chaves
+        for (Animal animal : animais) {
+            if(animal instanceof Cavalo){
+                List<Animal> cavalos = mapaAnimais.get(chaveCavalo);
+                cavalos.add(animal);
+            } else if (animal instanceof Girafa) {
+                List<Animal> girafas = mapaAnimais.get(chaveGirafa);
+                girafas.add(animal);
+            }
+        }
+
+        System.out.println("------------------------------------------------");
+        List<Animal> cavalos = mapaAnimais.get(chaveCavalo);
+        for (Animal animal : cavalos) {
+            System.out.println("Dados do Cavalo: | ID:  " + animal.getId() + " | Nome do Cavalo: " + animal.getNome());
+        }
+
+        System.out.println("------------------------------------------------");
+        List<Animal> girafas = mapaAnimais.get(chaveGirafa);
+        for (Animal animal : girafas) {
+            System.out.println("Dados do Cavalo: | ID:  " + animal.getId() + " | Nome do Cavalo: " + animal.getNome());
+        }
+    }
+    
 }
